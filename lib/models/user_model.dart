@@ -1,0 +1,76 @@
+class UserModel {
+  int? status;
+  String? message;
+  Data? data;
+
+  UserModel({this.status, this.message, this.data});
+
+  UserModel.fromJson(Map<String, dynamic> json) {
+    status = json['status'];
+    message = json['message'];
+    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['status'] = this.status;
+    data['message'] = this.message;
+    if (this.data != null) {
+      data['data'] = this.data!.toJson();
+    }
+    return data;
+  }
+}
+
+class Data {
+  String? iduser;
+  String? userName;
+  String? userEmail;
+  String? userFoto;
+  String? userAsalSekolah;
+  String? dateCreate;
+  String? jenjang;
+  String? userGender;
+  String? userStatus;
+  String? kelas;
+
+  Data(
+      {this.iduser,
+      this.userName,
+      this.userEmail,
+      this.userFoto,
+      this.userAsalSekolah,
+      this.dateCreate,
+      this.jenjang,
+      this.userGender,
+      this.userStatus,
+      this.kelas});
+
+  Data.fromJson(Map<String, dynamic> json) {
+    iduser = json['iduser'];
+    userName = json['user_name'];
+    userEmail = json['user_email'];
+    userFoto = json['user_foto'];
+    userAsalSekolah = json['user_asal_sekolah'];
+    dateCreate = json['date_create'];
+    jenjang = json['jenjang'];
+    userGender = json['user_gender'];
+    userStatus = json['user_status'];
+    kelas = json['kelas'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['iduser'] = this.iduser;
+    data['user_name'] = this.userName;
+    data['user_email'] = this.userEmail;
+    data['user_foto'] = this.userFoto;
+    data['user_asal_sekolah'] = this.userAsalSekolah;
+    data['date_create'] = this.dateCreate;
+    data['jenjang'] = this.jenjang;
+    data['user_gender'] = this.userGender;
+    data['user_status'] = this.userStatus;
+    data['kelas'] = this.kelas;
+    return data;
+  }
+}
